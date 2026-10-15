@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<!-- 宣告使用 HTML5；DOCTYPE 是文件類型宣告，不需要結束標籤。 -->
+<html lang="zh-Hant">
+<!-- html 包住整份文件；lang="zh-Hant" 表示頁面主要使用繁體中文。 -->
+<head>
+    <!-- head 放網頁中繼資料與 SEO 設定；這些資訊不會直接成為頁面中的報導正文。 -->
+    <meta charset="UTF-8">
+    <!-- UTF-8 可正確處理繁體中文，避免亂碼；meta 是空元素，不寫結束標籤。 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- viewport 讓行動裝置以裝置寬度顯示頁面；但固定 480 像素的媒體不會因此自動縮放。 -->
+    <meta name="description" content="走進台中驛鐵道園區，認識 1917 年國定古蹟舊臺中火車站、舊軌月台、退役經典列車與地理位置，透過完整 HTML5 語意結構閱讀台中城市鐵道故事。">
+    <!-- description 提供搜尋引擎與讀者網頁摘要；author 標示本文作者與學號。 -->
+    <meta name="author" content="嚴文崧 d1446655">
+    <meta name="robots" content="index, follow">
+    <!-- robots 設定為 index, follow，表示公開部署後允許搜尋引擎索引本頁與追蹤連結。 -->
+
+    <!--
+        Open Graph 分享資訊：供社群平台產生分享預覽卡片，與本篇台中驛鐵道園區報導內容一致。
+        依 Google SEO 入門指南，不加入 keywords 標籤。
+        canonical 與 og:url 必須指向真實公開網址；本作業尚未正式部署上線，
+        因此不填入 localhost、file:// 或虛構網址，待正式發布至公開伺服器後再行補齊。
+    -->
+    <meta property="og:type" content="article">
+    <meta property="og:locale" content="zh_TW">
+    <meta property="og:title" content="台中驛鐵道園區報導｜城市裡的百年鐵道風景">
+    <meta property="og:description" content="從 1917 年國定古蹟臺中驛、舊軌月台退役列車到園區散步地圖，深入認識台中的百年鐵道記憶。">
+    <meta property="og:image" content="https://i.ytimg.com/vi/0wCO9OQUh9Y/maxresdefault.jpg">
+    <meta property="og:image:alt" content="台中驛鐵道園區的國定古蹟舊臺中火車站紅磚建築正面外觀">
+
+    <title>台中驛鐵道園區報導｜城市裡的百年鐵道風景</title>
+    <!-- title 顯示於瀏覽器分頁與搜尋結果標題；與 body 中的 h1 相互呼應但用途不同。 -->
+</head>
+
+<body>
+    <!--
+        第五次作業：台中驛鐵道園區報導的 HTML5 語意結構（HW05_d1446655.html）。
+        本作業延續 HW04，完整使用八種 HTML5 語意元素：
+        header、nav、main、article、section、aside、figure、footer。
+        僅使用純 HTML 撰寫，不加入 style 元素、style 屬性、外部 CSS、JavaScript 或事件屬性。
+        全篇採用一致的四個空格縮排，成對標籤皆明確寫出結束標籤。
+    -->
+
+    <!-- 語意元素 1：header 是頁首區塊，包含本篇報導主標題、副標、作者學號與整理日期；id="top" 供頁尾回到頁首使用。 -->
+    <header id="top">
+        <!-- h1 是本頁唯一的主標題；後續章節依階層使用 h2 與 h3。 -->
+        <h1>台中驛鐵道園區：城市裡的百年鐵道風景</h1>
+        <p>從國定古蹟舊車站、舊軌月台到退役經典車廂，一起走讀台中的城市鐵道記憶。</p>
+        <!-- time 的 datetime 屬性以標準 YYYY-MM-DD 格式提供機器可讀的日期。 -->
+        <p>
+            作者：<strong>嚴文崧（學號：d1446655）</strong>｜
+            發布與更新日期：<time datetime="2026-10-15">2026 年 10 月 15 日</time>
+        </p>
+        <!-- small 用於標示次要的屬性說明與聲明，整理頁面資訊層次。 -->
+        <p><small>本文為資料整理型教學報導，非現場採訪紀錄；所有內容皆依公開文獻與官方資訊彙整。</small></p>
+    </header>
+
+    <hr>
+
+    <!-- 語意元素 2：nav 表示導覽連結區塊，提供本頁各主要章節與補充提醒的頁內跳轉目錄。 -->
+    <nav aria-label="報導目錄">
+        <h2>報導目錄</h2>
+        <ul>
+            <li><a href="#intro">一、園區簡介與歷史沿革</a></li>
+            <li><a href="#highlights">二、景點特色與散步順序</a></li>
+            <li><a href="#table">三、園區三大景點比較表</a></li>
+            <li><a href="#photo">四、國定古蹟台中驛照片</a></li>
+            <li><a href="#video">五、園區影音導覽報導</a></li>
+            <li><a href="#map">六、位置地圖與交通資訊</a></li>
+            <li><a href="#notes">補充提醒：走讀參觀小叮嚀（aside）</a></li>
+            <li><a href="#sources">七、參考資料與媒體來源</a></li>
+        </ul>
+    </nav>
+
+    <!-- hr 表示不同內容主題之間的分隔，屬於空元素，不寫結束標籤。 -->
+    <hr>
+
+    <!-- 語意元素 3：main 包住整頁唯一的主要內容；全頁只有一個 main，且不包在 header、nav、aside 或 footer 內。 -->
+    <main>
+        <!-- 語意元素 4：article 表示一篇結構完整、可獨立閱讀與轉載的「台中驛鐵道園區」專題報導。 -->
+        <article aria-label="台中驛鐵道園區專題報導">
+
+            <!-- 語意元素 5：section 將報導劃分為有明確主題與標題的章節；每個 section 都有唯一的 id 與 h2 標題。 -->
+            <section id="intro">
+                <h2>一、園區簡介與歷史沿革</h2>
+                <!-- p 表示段落；strong 強調關鍵史實；mark 標示本篇報導的核心閱讀焦點。 -->
+                <p>
+                    台中驛鐵道文化園區位於台中市中心中區，是以國定古蹟<strong>「舊臺中火車站」</strong>為核心所打造的鐵道文化保存與休閒空間。
+                    自 1905 年第一代木造車站設立、1908 年西部縱貫鐵路於台中舉行全線通車典禮以來，這裡一直是中台灣最重要的交通門戶，
+                    不僅帶動了台中城區的現代化棋盤式街廓發展，更承載了超過一個世紀的南來北往旅人記憶。
+                </p>
+                <p>
+                    目前園區內最受矚目的歷史建築，是於 <strong>1917 年（大正 6 年）</strong>落成的第二代車站本體「臺中驛」。
+                    建築採紅磚牆面搭配白色洗石子水平飾帶的「辰野式」風格，中央屋頂設有莊嚴的鐘塔與玄關山形牆，展現日治時期折衷主義建築工藝之美。
+                    隨著 2016 年台中鐵路高架化通車、第三代高架新站啟用，舊站卸下百年的疏運重任，轉型為結合古蹟保存、文創展演與歷史教育的鐵道園區。
+                </p>
+                <p>
+                    今日走訪台中驛鐵道園區，本篇的閱讀焦點在於<mark>「三代車站同堂的歷史演進、舊軌月台的退役經典列車，以及古蹟空間的當代活化」</mark>。
+                    園區不僅完整保留了第一、第二月台與鐵軌遺構，更引進退役的 DR2700 型光華號與 EMU100 型自強號列車駐站展示，
+                    讓市民與遊客能在新舊交融的場域裡，細細閱讀台中這座因鐵道而誕生的城市故事。
+                </p>
+                <!-- br 僅用於同一段落內地址與重點的必要換行，不用來製造段落間距。 -->
+                <p>
+                    <strong>園區地址：</strong>台中市中區臺灣大道一段 1 號。<br>
+                    <strong>走讀核心：</strong>百年辰野式紅磚古蹟、第一代站機關庫遺構、舊軌退役火車與鐵鹿大街文創空間。
+                </p>
+            </section>
+
+            <hr>
+
+            <section id="highlights">
+                <h2>二、景點特色與散步順序</h2>
+                <h3>值得細看的三個園區特色</h3>
+                <!-- ul 是無序清單，適合呈現並列、不分先後順序的景點特色。 -->
+                <ul>
+                    <li><strong>三代車站共構奇景：</strong>在園區內可同時看見第一代車站的「機關庫遺構」、第二代「1917 年國定古蹟紅磚站房」，以及第三代「現代高架火車站」，見證台灣鐵道百年演變。</li>
+                    <li><strong>經典退役列車進駐：</strong>舊軌月台停放著曾創下西部幹線最快紀錄的「白鐵仔」DR2700 型光華號柴油客車，以及台灣第一代電聯車「英國貴婦」EMU100 型自強號。</li>
+                    <li><strong>古蹟與生活美學融合：</strong>舊售票大廳保留木造屋架與歷史售票窗，定期舉辦鐵道主題策展；高架軌道下方則串聯「鐵鹿大街」美食與假日文創市集，賦予老車站新生命。</li>
+                </ul>
+
+                <h3>建議散步走讀順序</h3>
+                <p>以下路線由本文作者規劃，建議預留約 60 至 90 分鐘依序慢行觀察：</p>
+                <!-- ol 是有序清單，適合呈現具有先後動線順序的散步步驟。 -->
+                <ol>
+                    <li><strong>站前廣場仰望立面：</strong>從臺灣大道側的站前廣場出發，先遠觀 1917 年臺中驛對稱的紅磚立面、白色水平飾帶與中央屋頂鐘塔。</li>
+                    <li><strong>走入百年候車大廳：</strong>進入舊站大廳，抬頭觀察洗石子柱頭與木構造屋頂，並仔細端詳保留下來的歷史售票口與剪票口動線。</li>
+                    <li><strong>漫步舊軌月台賞車：</strong>穿過剪票口走上第一、第二月台，近距離觀察洗石子月台棚架，並參觀停靠在舊鐵軌上的 EMU100 自強號與 DR2700 光華號車廂。</li>
+                    <li><strong>連結綠空與鐵鹿大街：</strong>最後前往高架新站一樓的鐵鹿大街與周邊綠空鐵道廊道，對比高架新站與平面舊站的空間尺度，完成新舊交織的鐵道走讀。</li>
+                </ol>
+            </section>
+
+            <hr>
+
+            <section id="table">
+                <h2>三、園區三大景點比較表</h2>
+                <p>下表整理台中驛鐵道園區內三處核心區域的歷史背景與現場觀察重點：</p>
+                <!--
+                    table 用於結構化資料比較，不用來排版整個頁面。
+                    延續教師指定的有框表格要求，此處保留 border="1" 舊式屬性以呈現純 HTML 框線。
+                    包含 caption、thead、tbody、tr、th、td，並以 scope 明確標示欄標題與列標題。
+                -->
+                <table border="1">
+                    <!-- caption 為表格標題，必須放在 table 元素內的第一個位置。 -->
+                    <caption>台中驛鐵道園區三處核心景點的特色與觀察重點比較</caption>
+                    <!-- thead 包住表頭列；scope="col" 代表該 th 為整欄的標題。 -->
+                    <thead>
+                        <tr>
+                            <th scope="col">景點名稱</th>
+                            <th scope="col">年代與身分定位</th>
+                            <th scope="col">主要空間特色</th>
+                            <th scope="col">現場建議觀察重點</th>
+                        </tr>
+                    </thead>
+                    <!-- tbody 包住資料本體列；每列第一個儲存格使用 th 搭配 scope="row" 作為列標題。 -->
+                    <tbody>
+                        <tr>
+                            <th scope="row">臺中驛（二代舊站房）</th>
+                            <td>1917 年落成／國定古蹟</td>
+                            <td>紅磚與白色洗石子辰野式建築、木造屋架大廳</td>
+                            <td>玄關山形牆勳章飾、木造售票窗、屋頂鐘塔造型</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">舊軌月台與退役車廂</th>
+                            <td>日治時期月台與經典退役列車</td>
+                            <td>完整保留第一、二月台軌道，停放實體火車車廂</td>
+                            <td>DR2700 光華號不鏽鋼車體、EMU100 自強號圓潤車頭</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">鐵鹿大街與三代新站</th>
+                            <td>2016 年啟用／高架車站與商場</td>
+                            <td>大型開放式高架棚頂，下方結合餐飲與文創市集</td>
+                            <td>新舊站體並立的視覺對比、一代站遺構展示區</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <hr>
+
+            <section id="photo">
+                <h2>四、國定古蹟台中驛照片</h2>
+                <p>透過下方實景照片，可清楚觀察臺中驛正立面的紅磚牆體、白色洗石子飾帶與入口玄關結構：</p>
+                <!-- 語意元素 6：figure 將獨立的照片（img）與圖說（figcaption）組合成一個完整的語意單位。 -->
+                <figure>
+                    <!--
+                        img 是空元素，不寫結束標籤。
+                        src 使用穩定公開的臺中驛實景圖片網址；alt 具體描述畫面中的建築外觀特徵；
+                        width="480" 設定適合桌面預覽的固定寬度，高度由瀏覽器依原圖比例自動計算。
+                    -->
+                    <img
+                        src="20.jpg"
+                        alt="台中驛鐵道文化園區的國定古蹟舊臺中火車站正立面，展現紅磚外牆、白色水平飾帶與玄關屋頂結構"
+                        width="480">
+                    <figcaption>
+                        圖一：建於 1917 年的國定古蹟「臺中驛」舊站房，是台中驛鐵道園區最具代表性的核心建築。
+                        圖片來源：<a href="https://www.youtube.com/watch?v=0wCO9OQUh9Y" target="_blank" rel="noopener noreferrer">臺中驛鐵道文化園區官方頻道影像紀錄（另開分頁）</a>。
+                    </figcaption>
+                </figure>
+            </section>
+
+            <hr>
+
+            <section id="video">
+                <h2>五、園區影音導覽報導</h2>
+                <p>
+                    下方影片帶領讀者實地走訪台中火車站新站大廳、國定古蹟舊站、舊軌月台上的 EMU100 型自強號與 DR2700 型光華號列車，以及鐵鹿大街空間。
+                    建議先點擊下方影片封面或文字連結前往 YouTube 觀看，再與本篇文字介紹相互對照。
+                </p>
+
+                <!--
+                    為避免讀者直接以 file:// 雙擊開啟本機 HTML 檔案時，立即遭遇 YouTube 缺少 HTTP Referer 的錯誤 153，
+                    此處預設採用 figure 提供「可點擊的影片封面圖」與「一般 YouTube 觀看連結」，確保直接開檔也能順利開啟影片。
+                -->
+                <figure>
+                    <a href="https://www.youtube.com/watch?v=EzwwpOOmC_g" target="_blank" rel="noopener noreferrer">
+                        <img
+                            src="https://i.ytimg.com/vi/EzwwpOOmC_g/hqdefault.jpg"
+                            alt="臺中驛鐵道文化園區與台中火車站導覽影片封面，點擊可另開分頁前往 YouTube 觀看"
+                            width="480">
+                    </a>
+                    <figcaption>
+                        影片封面：點擊上方圖片或
+                        <a href="https://www.youtube.com/watch?v=EzwwpOOmC_g" target="_blank" rel="noopener noreferrer">前往 YouTube 觀看「臺中驛鐵道文化園區－台中火車站」導覽影片（另開分頁）</a>。
+                        影片來源：YouTube 頻道「LOOK旅遊生活」。
+                    </figcaption>
+                </figure>
+
+                <!--
+                    使用純 HTML5 的 details 與 summary 製作原生收折區塊，不需撰寫任何 JavaScript。
+                    將 YouTube iframe 放在預設收合的「進階練習」中：
+                    使用本機 HTTP 伺服器（如 python3 -m http.server 8000 或 VS Code Live Server）預覽時，展開即可直接播放。
+                -->
+                <details>
+                    <summary><strong>進階練習：展開 YouTube 嵌入播放器（請以本機 HTTP／HTTPS 伺服器預覽後展開）</strong></summary>
+                    <p>
+                        <small>
+                            提醒：若直接雙擊本機 HTML 檔（<code>file://</code>）開啟，YouTube 可能因缺少有效 HTTP Referer 而顯示錯誤 153。
+                            請使用 <code>http://localhost:8000/</code> 或 VS Code Live Server 預覽此嵌入式播放器。
+                        </small>
+                    </p>
+                    <!--
+                        YouTube iframe 嵌入設定：
+                        src 使用 /embed/EzwwpOOmC_g 嵌入專用網址；width 與 height 設定 480x270（16:9 比例）；
+                        title 清楚說明嵌入影片內容；allowfullscreen 允許全螢幕播放；referrerpolicy 傳遞跨站來源資訊。
+                    -->
+                    <iframe
+                        width="480"
+                        height="270"
+                        src="https://www.youtube.com/embed/EzwwpOOmC_g"
+                        title="臺中驛鐵道文化園區與新舊台中火車站實景導覽影片"
+                        allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        referrerpolicy="strict-origin-when-cross-origin"
+                        allowfullscreen>
+                    </iframe>
+                </details>
+            </section>
+
+            <hr>
+
+            <section id="map">
+                <h2>六、位置地圖與交通資訊</h2>
+                <p>
+                    台中驛鐵道園區座落於台中市中心交通樞紐，緊鄰台鐵高架台中車站與台中轉運站。
+                    下方嵌入 Google 地圖標示園區核心「舊臺中火車站」所在位置，方便讀者確認周邊道路與相對方位：
+                </p>
+                <p>
+                    <strong>園區地址：</strong>400 台中市中區臺灣大道一段 1 號（緯度 24.13678、經度 120.68501）。
+                </p>
+                <!--
+                    Google 地圖 iframe 嵌入設定：
+                    採用座標形式定位交通部觀光署公開資料所列之「臺中火車站舊站」（緯度 24.13678 在前、經度 120.68501 在後）。
+                    網址中的 & 符號在 HTML 原始碼中嚴格轉義寫為 &amp;。
+                    依作業規定移除 style="border:0;" 等任何 CSS 屬性，並加上描述用途的 title、width、height、loading="lazy" 與 referrerpolicy。
+                -->
+                <iframe
+                    src="https://maps.google.com/maps?q=24.13678,120.68501&amp;z=17&amp;output=embed"
+                    width="480"
+                    height="360"
+                    title="台中驛鐵道園區（國定古蹟舊臺中火車站）位置地圖"
+                    loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
+                <!-- 提供一般地圖外部連結，當離線或嵌入載入失敗時仍可另開分頁查看。 -->
+                <p>
+                    若上方嵌入式地圖無法正常顯示，請點選：
+                    <a href="https://www.google.com/maps/search/?api=1&amp;query=24.13678,120.68501" target="_blank" rel="noopener noreferrer">在 Google 地圖開啟「台中驛鐵道文化園區」位置（另開分頁）</a>。
+                </p>
+                <p><small>地圖來源：Google 地圖（定位座標依據政府公開觀光景點資料：24.13678, 120.68501）。</small></p>
+            </section>
+
+            <hr>
+
+            <!--
+                語意元素 7：aside 表示與主文相關的「補充提醒與延伸資訊」。
+                即使將 aside 從文章中抽離，也不會影響上方台中驛歷史與景點的主要論述。
+                注意：aside 是語意標籤，在未加入 CSS 排版前，瀏覽器會依文件流由上而下呈現，不會自動移到畫面右側變成側欄。
+            -->
+            <aside id="notes" aria-label="台中驛走讀補充提醒">
+                <h2>補充提醒：走讀參觀小叮嚀</h2>
+                <p>前往台中驛鐵道園區散步或拍攝古蹟建築前，建議留意以下實用事項：</p>
+                <ul>
+                    <li><strong>搭車動線區分：</strong>1917 年紅磚舊站目前已停駛並轉為文化展演空間；若需搭乘台鐵列車，請由旁邊的第三代高架新站進站乘車。</li>
+                    <li><strong>最佳拍攝時段：</strong>臺中驛正立面朝向西北方，建議於下午 3 點至傍晚時分前往站前廣場拍攝，順光能讓紅磚與白色洗石子飾帶呈現更立體的色澤。</li>
+                    <li><strong>愛護古蹟與展車：</strong>部分退役車廂（如 DR2700 光華號）於特定時段開放內部參觀或主題快閃店，入內請勿攀爬車體或觸碰禁止觸摸的歷史構件。</li>
+                </ul>
+                <!-- 運用原生 details 與 summary 提供可收折的周邊順遊小提醒。 -->
+                <details>
+                    <summary>點擊展開：周邊順遊景點延伸建議</summary>
+                    <p>
+                        走出台中驛後，可沿著由舊鐵道改建的「綠空鐵道 1908」空中廊道往南散步，或步行約 3 至 5 分鐘前往綠川水岸廊道、宮原眼科與第四信用合作社，串聯成完整的台中中區半日走讀路線。
+                    </p>
+                </details>
+            </aside>
+
+            <hr>
+
+            <section id="sources">
+                <h2>七、參考資料與媒體來源</h2>
+                <p>本篇報導內容、歷史年份、座標與媒體素材均整理自下列公開資料，走讀動線與比較表格由作者嚴文崧（d1446655）彙整撰寫：</p>
+                <!--
+                    target="_blank" 設定於新分頁開啟外部連結；
+                    rel="noopener noreferrer" 保護新開頁面與原頁面的安全性關聯；
+                    網址中若有 & 符號皆寫為 &amp;。
+                -->
+                <ul>
+                    <li>
+                        <strong>文字參考來源一：</strong>
+                        <a href="https://travel.taichung.gov.tw/zh-tw/attractions/intro/1837" target="_blank" rel="noopener noreferrer">臺中市政府觀光旅遊局（臺中觀光旅遊網）：臺中驛鐵道文化園區景點介紹</a>
+                    </li>
+                    <li>
+                        <strong>文字參考來源二：</strong>
+                        <a href="https://travel.taichung.gov.tw/zh-tw/attractions/intro/52" target="_blank" rel="noopener noreferrer">臺中市政府觀光旅遊局（臺中觀光旅遊網）：臺中火車站舊站（國定古蹟歷史沿革）</a>
+                    </li>
+                    <li>
+                        <strong>文字參考來源三：</strong>
+                        <a href="https://www.tcrp.com.tw/about" target="_blank" rel="noopener noreferrer">臺中驛鐵道文化園區官方網站：關於園區與歷史建築介紹</a>
+                    </li>
+                    <li>
+                        <strong>照片來源：</strong>
+                        <a href="https://www.youtube.com/watch?v=0wCO9OQUh9Y" target="_blank" rel="noopener noreferrer">臺中驛鐵道文化園區官方 YouTube 頻道：《驛二三事｜台中車站展》高畫質車站實景封面</a>
+                    </li>
+                    <li>
+                        <strong>影片來源：</strong>
+                        <a href="https://www.youtube.com/watch?v=EzwwpOOmC_g" target="_blank" rel="noopener noreferrer">YouTube 頻道「LOOK旅遊生活」：臺中驛鐵道文化園區－台中火車站實景導覽影片</a>
+                    </li>
+                    <li>
+                        <strong>地圖與座標來源：</strong>
+                        <a href="https://www.google.com/maps/search/?api=1&amp;query=24.13678,120.68501" target="_blank" rel="noopener noreferrer">Google 地圖：臺中驛鐵道文化園區（座標 24.13678, 120.68501）</a>
+                    </li>
+                </ul>
+                <p><small>資料最後查核與整理日期：<time datetime="2026-10-15">2026 年 10 月 15 日</time>。</small></p>
+            </section>
+
+        </article>
+    </main>
+
+    <hr>
+
+    <!-- 語意元素 8：footer 是頁尾區塊，清楚標示作業名稱、作者姓名、學號、更新日期，並提供回到頁首的頁內連結。 -->
+    <footer>
+        <p>第五次 HTML 作業（HTML5 語意結構）｜台中驛鐵道園區專題報導</p>
+        <p>作者：嚴文崧｜學號：d1446655｜更新日期：<time datetime="2026-10-15">2026 年 10 月 15 日</time></p>
+        <p><a href="#top">回到頁首</a></p>
+    </footer>
+</body>
+</html>
